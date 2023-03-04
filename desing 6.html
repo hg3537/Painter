@@ -11,6 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- css file -->
     <link rel="stylesheet" href="desgin6.css">
+    <!-- For styles with static names... -->
+<link href="{{ 'assets/css/style.css' | relative_url }}" rel="stylesheet">
+<!-- For documents/pages whose URLs can change... -->
+[{{ page.title }}]("{{ page.url | relative_url }}")
 </head>
 
 <body>
