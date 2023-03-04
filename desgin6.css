@@ -336,6 +336,22 @@ body {
     .about-img img {
         height: 400px !important;
     }
+    
+    .navbar-cont {
+        justify-content: center;
+    }
+
+    .landing-text h1 {
+        font-size: 3rem;
+    }
+
+    .service-card {
+        margin: 30px 20px !important;
+    }
+
+    .service-cont {
+        margin: 60px 0 !important;
+    }
 }
 
 .last-about-card {
@@ -390,8 +406,6 @@ body {
 }
 
 /* service */
-.service {}
-
 .container-title {
     text-align: center;
     position: relative;
@@ -422,6 +436,8 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 30px;
+        justify-content: center;
+
 }
 
 .service-card {
