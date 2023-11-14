@@ -32,16 +32,11 @@ function hide ()
 
 }
 hide();
-document.addEventListener("keyup", (e) =>
-{
-    if (e.key === `Escape`)
-    {
-        hide();
-    }
-});
 bar.addEventListener(`click`, show);
 
+
 xmark.addEventListener(`click`, hide);
+
 navlinks.forEach(nav =>
 {
     nav.addEventListener(`click`, () =>
@@ -49,6 +44,12 @@ navlinks.forEach(nav =>
         hide();
     });
 });
+document.addEventListener(`click`, (e) =>
+{
+    if (!links.contains(e.target) && !xmark.contains(e.target) && !bar.contains(e.target)) {
+        hide()
+    }
+})
 
 window.addEventListener(`scroll`, () =>
 {
@@ -100,29 +101,26 @@ window.addEventListener(`scroll`, () =>
             img.classList.remove(`show-card`);
         }
     });
-    let sections = document.querySelectorAll(`.section`)
-    let navli = document.querySelectorAll(`.nav-link`)
+    let sections = document.querySelectorAll(`.section`);
+    let navli = document.querySelectorAll(`.nav-link`);
     sections.forEach(sec =>
+    {
+        let stop = window.scrollY;
+        let offset = sec.offsetTop;
+        let id = sec.getAttribute(`id`);
+        if (stop >= (offset - 100))
         {
-            let stop = window.scrollY;
-            let offset = sec.offsetTop;
-            let id = sec.getAttribute(`id`);
-            if (stop >=( offset - 100 ))
-            {
-                cuurentsection = id;
-            }
-        });
-        navli.forEach(li =>
+            cuurentsection = id;
+        }
+    });
+    navli.forEach(li =>
+    {
+        if (li.href.includes(cuurentsection))
         {
-            if (li.href.includes(cuurentsection))
-            {
-                document.querySelector(`.active`).classList.remove(`active`);
-                li.classList.add(`active`);
-            }
-        });
+            document.querySelector(`.active`).classList.remove(`active`);
+            li.classList.add(`active`);
+        }
+    });
 
 })
-
-
-
 
